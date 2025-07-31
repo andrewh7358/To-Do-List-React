@@ -1,0 +1,21 @@
+body {
+  background-color: tan;
+}
+
+button {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.listItem {
+  width: 600px;
+  justify-content:space-between;
+  background-color: white;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.deleteButton {
+  height: 24px;
+  width: 24px;
+}
