@@ -2,7 +2,9 @@
 
 Simple to do list in TypeScript and React.
 
-Add and delete to do items.
+Add and remove to do items.
+
+<img src='./screenshot.png' alt='screenshot' width='600' />
 
 ## How to run
 
