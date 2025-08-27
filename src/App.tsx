@@ -1,7 +1,8 @@
 import React, { FormEvent, useState } from 'react'
-import ListItem from './ListItem'
+import { ListItem } from './components/ListItem'
+import { Card } from './components/Card'
 
-const App = () => {
+export const App = () => {
   const [item, setItem] = useState('')
   const [list, setList] = useState([] as string[])
 
@@ -9,15 +10,11 @@ const App = () => {
     setList(list.slice(0, index).concat(list.slice(index + 1)))
   }
 
-  const listOutput = list.map((v, i) => ListItem(v, i, deleteItem))
-  const noItems = <h2 className='listItem' style={{ padding: '4px' }}>Add your first item</h2>
+  const listOutput = list.map((item, index) => <ListItem item={item} index={index} deleteItem={deleteItem} />)
+  const noItems = <div className='listItem'>All done, no items!</div>
+  const content = listOutput.length ? listOutput : noItems
 
-  const onChange = (e: FormEvent) => {
-    const { value } = e.target as HTMLInputElement
-    setItem(value)
-  }
-
-  const onSubmit = (e: FormEvent, item: string) => {
+  const onSubmit = (e: FormEvent) => {
     e.preventDefault()
 
     if (item === '') {
@@ -28,16 +25,23 @@ const App = () => {
     setItem('')
   }
 
+  const onChange = (e: FormEvent) => {
+    const { value } = e.target as HTMLInputElement
+    setItem(value)
+  }
+
   return (
-    <>
-      <h1>To Do List</h1>
-      <form style={{ width: '600px' }} onSubmit={(e) => onSubmit(e, item)}>
-        <input type='text' name='item' value={item} onChange={onChange}/>
-        <button type='submit'>Add Item</button>
-      </form>
-      {listOutput.length ? listOutput : noItems}
-    </>
+    <div className='app'>
+      <Card className='card'>
+        <h2>To Do List</h2>
+        <div className='divider' />
+        <form onSubmit={onSubmit}>
+          <label htmlFor='item'>Add item: </label>
+          <input id='item' type='text' value={item} onChange={onChange} />
+          <button type='submit'>+</button>
+        </form>
+        {content}
+      </Card>
+    </div>
   )
 }
-
-export default App

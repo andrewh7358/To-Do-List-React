@@ -1,21 +1,57 @@
 body {
-  background-color: tan;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin: unset;
+}
+
+.divider {
+  height: 2px;
+  background-color: black;
+  margin: 8px 0px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  margin-right: 4px;
+}
+
+input {
+  flex-grow: 1;
 }
 
 button {
-  margin-left: 8px;
-  margin-right: 8px;
+  height: 24px;
+  width: 24px;
+  margin: 0px 8px;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background-color: lightblue;
+  min-height: 400px;
+  width: 600px;
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 16px;
 }
 
 .listItem {
-  width: 600px;
+  display: flex;
+  align-items: center;
   justify-content:space-between;
   background-color: white;
+  min-height: 24px;
   margin-top: 8px;
-  border-radius: 8px;
-}
-
-.deleteButton {
-  height: 24px;
-  width: 24px;
+  padding: 8px 0px 8px 8px;
+  border-radius: 4px;
 }
